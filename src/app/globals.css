@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Radium-Inspired Light Theme */
+    --background: 210 20% 98%; /* Very Light Cool Gray */
+    --foreground: 210 10% 20%; /* Dark Cool Gray */
+
+    --muted: 210 15% 94%; /* Light Cool Gray */
+    --muted-foreground: 210 10% 45%; /* Medium Cool Gray */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 210 10% 20%; /* Dark Cool Gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 210 10% 20%; /* Dark Cool Gray */
+
+    --border: 210 15% 88%; /* Slightly Darker Cool Gray Border */
+    --input: 210 15% 88%; /* Input Border */
+
+    --primary: 180 70% 45%; /* Teal/Cyan */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 210 10% 90%; /* Slightly Darker Cool Gray */
+    --secondary-foreground: 210 10% 15%; /* Very Dark Cool Gray */
+
+    --accent: 140 60% 55%; /* Vibrant Green */
+    --accent-foreground: 210 10% 15%; /* Very Dark Cool Gray */
+
+    --destructive: 0 75% 55%; /* Bright Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --ring: 180 70% 45%; /* Primary color for focus rings */
+    --radius: 0.5rem;
+
+    /* Sidebar specific theme variables - Light */
+    --sidebar-background: 210 10% 20%; /* Dark Cool Gray Sidebar */
+    --sidebar-foreground: 210 15% 85%; /* Light Gray Text */
+    --sidebar-primary: 180 70% 55%;    /* Brighter Teal/Cyan for active */
+    --sidebar-primary-foreground: 0 0% 100%; /* White text on active */
+    --sidebar-accent: 210 10% 28%;     /* Slightly lighter dark for hover */
+    --sidebar-accent-foreground: 210 15% 95%; /* Lighter text on hover */
+    --sidebar-border: 210 10% 30%;     /* Separators in sidebar */
+    --sidebar-ring: 180 70% 55%;       /* Primary for focus rings in sidebar */
+
+    /* Header specific theme variables - Light */
+    --header-background: 210 10% 20%; /* Dark Cool Gray, same as sidebar */
+
+    --chart-1: 180 70% 45%; /* Primary */
+    --chart-2: 140 60% 55%; /* Accent */
+    --chart-3: 210 60% 50%; /* Blue */
+    --chart-4: 30 90% 60%; /* Orange */
+    --chart-5: 0 75% 60%; /* Red */
+  }
+
+  .dark {
+    /* Radium-Inspired Dark Theme */
+    --background: 210 10% 12%; /* Very Dark Cool Gray */
+    --foreground: 210 15% 88%; /* Light Gray */
+
+    --muted: 210 10% 18%; /* Darker Cool Gray */
+    --muted-foreground: 210 10% 60%; /* Medium Gray */
+
+    --popover: 210 10% 9%; /* Even Darker */
+    --popover-foreground: 210 15% 88%; /* Light Gray */
+
+    --card: 210 10% 15%; /* Dark Card */
+    --card-foreground: 210 15% 88%; /* Light Gray */
+
+    --border: 210 10% 25%; /* Dark Border */
+    --input: 210 10% 25%; /* Input Border */
+
+    --primary: 180 65% 55%; /* Slightly brighter Teal/Cyan */
+    --primary-foreground: 210 10% 15%; /* Dark Text on Primary */
+
+    --secondary: 210 10% 22%; /* Dark Secondary */
+    --secondary-foreground: 210 15% 88%; /* Light Gray */
+
+    --accent: 140 55% 60%; /* Brighter Green */
+    --accent-foreground: 210 10% 15%; /* Dark Text on Accent */
+
+    --destructive: 0 65% 60%; /* Slightly brighter red for dark */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --ring: 140 55% 60%; /* Accent ring for dark mode */
+
+    /* Sidebar specific theme variables for dark mode */
+    --sidebar-background: 210 10% 10%; /* Slightly darker than main dark bg */
+    --sidebar-foreground: 210 15% 80%; /* Lighter Gray text */
+    --sidebar-primary: 180 65% 60%;    /* Primary color active */
+    --sidebar-primary-foreground: 210 10% 15%;  /* Dark text on active */
+    --sidebar-accent: 210 10% 20%;     /* Hover for dark sidebar */
+    --sidebar-accent-foreground: 210 15% 90%; /* Lighter gray text on hover */
+    --sidebar-border: 210 10% 18%;     /* Border for dark sidebar */
+    --sidebar-ring: 180 65% 60%;       /* Primary ring for dark sidebar */
+
+    /* Header specific theme variables - Dark */
+    --header-background: 210 10% 10%; /* Slightly darker than main dark bg, same as sidebar */
+
+    --chart-1: 180 65% 55%; /* Primary Dark */
+    --chart-2: 140 55% 60%; /* Accent Dark */
+    --chart-3: 210 70% 60%; /* Blue Dark */
+    --chart-4: 30 85% 65%; /* Orange Dark */
+    --chart-5: 0 70% 65%; /* Red Dark */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

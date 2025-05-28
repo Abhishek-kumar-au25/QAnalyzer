@@ -1,0 +1,44 @@
+The error "Firebase: Error (auth/api-key-not-valid.-please-pass-a-valid-api-key.)" indicates that the Firebase API key you are using is either invalid or has not been properly configured. **It is crucial you don't expose your real API key.**
+Since I cannot directly modify the contents of the linked Javascript files within your environment, I cannot directly fix this issue. The solution is to ensure that you have a valid Firebase API key and that it is correctly configured in your application's Firebase configuration.
+
+Here's how to troubleshoot and resolve the issue:
+
+1.  **Verify the API Key:**
+    *   Double-check the `apiKey` value in your `firebaseConfig` object (likely located in `src/lib/firebase/firebase.config.ts`).  Make absolutely sure you haven't introduced any typos when setting it.
+
+2.  **Check Firebase Console:**
+    *   Go to the Firebase Console for your project.
+    *   Navigate to "Project settings" -> "General".
+    *   Verify that the API key displayed there matches the one in your code.
+    *   If the API key is restricted, ensure that your application's domain is listed as an authorized domain.
+
+3.  **Environment Variables:**
+    *   Make sure your API key is stored securely as an environment variable (e.g., `NEXT_PUBLIC_FIREBASE_API_KEY` in your `.env.local` file).
+    *   Ensure that this environment variable is correctly accessed in your `firebaseConfig` object:
+
+    ```javascript
+    const firebaseConfig = {
+      apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+      // ... other settings
+    };
+    ```
+
+4.  **Build Errors**: After updating the environmental variable, make sure to restart the next server. Certain IDE's and cloud environments may require a complete rebuild to reflect the environmental variable being added or updated.
+
+5.  **Correct Firebase Project:** Ensure you are using the API key that belongs to the correct firebase project.
+
+6.  **API Key Restrictions:** Check the API key restrictions.
+
+Debugging Steps:
+
+1.  **Console Logging (Temporary):**  As a temporary debugging step, you could log the value of `process.env.NEXT_PUBLIC_FIREBASE_API_KEY` to the console *during development* to confirm that it's being read correctly.  **Important:** Remove this console log before deploying to production!
+
+    ```javascript
+    console.log("Firebase API Key:", process.env.NEXT_PUBLIC_FIREBASE_API_KEY); // REMOVE BEFORE DEPLOYMENT
+    ```
+
+2.  **Check for Typos:** Carefully inspect your `firebaseConfig` object for any other potential errors, such as incorrect property names or missing values.
+
+3.  **Re-deploy:** After making changes, redeploy your application to ensure that the updated configuration is in effect.
+
+Once you've verified that the API key is correct and properly configured, the "auth/api-key-not-valid" error should disappear.
