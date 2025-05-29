@@ -50,7 +50,7 @@ body {
     --sidebar-ring: 180 70% 55%;       /* Primary for focus rings in sidebar */
 
     /* Header specific theme variables - Light */
-    --header-background: 210 10% 20%; /* Dark Cool Gray, same as sidebar */
+    --header-background: 210 10% 12%; /* Very Dark Cool Gray for header */
 
     --chart-1: 180 70% 45%; /* Primary */
     --chart-2: 140 60% 55%; /* Accent */
@@ -101,7 +101,7 @@ body {
     --sidebar-ring: 180 65% 60%;       /* Primary ring for dark sidebar */
 
     /* Header specific theme variables - Dark */
-    --header-background: 210 10% 10%; /* Slightly darker than main dark bg, same as sidebar */
+    --header-background: 0 0% 0%; /* Pure Black for header */
 
     --chart-1: 180 65% 55%; /* Primary Dark */
     --chart-2: 140 55% 60%; /* Accent Dark */

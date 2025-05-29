@@ -1,4 +1,3 @@
-
 // src/components/layout/app-header.tsx
 'use client';
 
@@ -16,8 +15,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
 import NetworkConditionsDropdown from '@/components/feature/network-conditions/network-conditions-dropdown';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog'; // Import Dialog components
-import { useToast } from '@/hooks/use-toast'; // Import useToast
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog';
+import { useToast } from '@/hooks/use-toast';
 
 // Helper function to find the current nav item and its parent
 const findCurrentNav = (pathname: string, items: NavItem[]): { current?: NavItem, parent?: NavItem } => {
@@ -100,7 +99,7 @@ export function AppHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-sidebar-background px-4 md:px-6 shadow-sm text-sidebar-foreground">
+      <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-header-background px-4 md:px-6 shadow-sm text-sidebar-foreground">
         <SidebarTrigger className="text-sidebar-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent" />
         <Breadcrumb className="hidden md:flex">
           <BreadcrumbList>
