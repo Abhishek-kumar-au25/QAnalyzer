@@ -125,7 +125,6 @@ export default function VideoPlayerClient() {
   const handleError = useCallback((index: number, error: any) => {
      if (typeof error === 'object' && error !== null) {
          console.error(`Player ${index + 1} encountered an error. Full error object:`, JSON.stringify(error, null, 2));
-         // Attempt to log common HLS.js error properties if they exist
          if (error.data && error.data.type && error.data.details) {
              console.error(`Player ${index + 1} HLS.js error details: Type: ${error.data.type}, Details: ${error.data.details}, Fatal: ${error.data.fatal}`);
          } else if (error.type && error.details) {
@@ -255,7 +254,7 @@ export default function VideoPlayerClient() {
                             placeholder="https://example.com/video.mp4 or .m3u8"
                             value={player.url}
                             onChange={(e) => handleUrlChange(index, e.target.value)}
-                            className="w-full"
+                            className="w-full px-4 py-3 h-12"
                             />
                         </div>
                         <Button

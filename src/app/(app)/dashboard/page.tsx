@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BarChart3, AlertTriangle, Network, Users, Settings, ClipboardList, Bug, FileText, UserPlus, Mail, Phone, Server, CheckCircle, Activity } from "lucide-react"; // Added Activity
+import { BarChart3, AlertTriangle, Network, Users, Settings, ClipboardList, Bug, UserPlus, Mail, Phone, Server, CheckCircle, Activity } from "lucide-react"; // Added Activity
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // Import chart components
@@ -25,8 +25,8 @@ import { db } from '@/lib/firebase/firebase.config'; // Import Firestore instanc
 import { collection, query, orderBy, limit, getDocs, Timestamp, getCountFromServer, where } from 'firebase/firestore';
 import { GoogleIcon } from '@/components/icons/google-icon';
 import { useAuth } from '@/contexts/AuthContext'; // Import useAuth
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent as AlertDialogContentNested, AlertDialogDescription as AlertDialogDescriptionNested, AlertDialogFooter as AlertDialogFooterNested, AlertDialogHeader as AlertDialogHeaderNested, AlertDialogTitle as AlertDialogTitleNested } from "@/components/ui/dialog"; // Import AlertDialog components
-import { useToast } from '@/hooks/use-toast'; // Import useToast for no alerts case
+import { AlertDialog, AlertDialogContent as AlertDialogContentNested, AlertDialogDescription as AlertDialogDescriptionNested, AlertDialogFooter as AlertDialogFooterNested, AlertDialogHeader as AlertDialogHeaderNested, AlertDialogTitle as AlertDialogTitleNested } from "@/components/ui/dialog"; // Import AlertDialog components
+import { useToast } from '@/hooks/use-toast'; // Import useToast
 
 
 const userCountFilterOptions = [
@@ -189,10 +189,10 @@ export default function DashboardPage() {
         const q = query(usersRef, orderBy('createdAt', 'desc'), limit(12));
         const querySnapshot = await getDocs(q);
         const fetchedUsers: RecentUser[] = [];
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
+        querySnapshot.forEach((docSnap) => {
+          const data = docSnap.data();
           fetchedUsers.push({
-            id: doc.id,
+            id: docSnap.id,
             name: data.displayName || data.email?.split('@')[0] || 'Anonymous User',
             avatarUrl: data.photoURL,
             email: data.email,
@@ -264,6 +264,7 @@ export default function DashboardPage() {
             try {
                 const usersRef = collection(db, 'users');
                 const q = query(usersRef,
+                                orderBy('createdAt', 'desc'), // Keep orderBy for consistency if needed, or remove if only filtering by range
                                 where('createdAt', '>=', Timestamp.fromDate(startDate)),
                                 where('createdAt', '<=', Timestamp.fromDate(endDate))
                                );
@@ -583,12 +584,12 @@ export default function DashboardPage() {
                     </div>
                     <div className="text-right">
                        {userEntry.signUpMethod === 'Email' ?
-                            <Mail className="h-4 w-4 text-blue-500" title="Signed up with Email" /> :
+                            <Mail className="h-4 w-4 text-blue-500" /> :
                         userEntry.signUpMethod === 'Google' ?
-                            <GoogleIcon className="h-4 w-4" title="Signed up with Google" /> :
+                            <GoogleIcon className="h-4 w-4" /> :
                         userEntry.signUpMethod === 'Phone' ?
-                            <Phone className="h-4 w-4 text-green-500" title="Signed up with Phone" /> :
-                            <Server className="h-4 w-4 text-muted-foreground" title="Sign-up method unknown" />
+                            <Phone className="h-4 w-4 text-green-500" /> :
+                            <Server className="h-4 w-4 text-muted-foreground" />
                        }
                       <p className="text-xs text-muted-foreground mt-1">
                         Joined: {isClientSideRender ? new Date(userEntry.joinDate).toLocaleDateString() : 'Loading date...'}
@@ -621,7 +622,7 @@ export default function DashboardPage() {
                     </AlertDialogDescriptionNested>
                 </AlertDialogHeaderNested>
                 <AlertDialogFooterNested>
-                    <AlertDialogCancel>Close</AlertDialogCancel>
+                    <Button variant="outline" onClick={() => setShowAlertsModal(false)}>Close</Button>
                     {/* Future: <AlertDialogAction>View Defects</AlertDialogAction> */}
                 </AlertDialogFooterNested>
             </AlertDialogContentNested>
@@ -629,4 +630,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-

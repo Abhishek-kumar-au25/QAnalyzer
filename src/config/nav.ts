@@ -112,7 +112,7 @@ export const navItems: NavItem[] = [
     iconName: 'ClipboardList',
     items: [
       {
-        title: 'Test Cases',
+        title: 'Manual Test Case',
         href: '/test-cases',
         iconName: 'ClipboardList',
       },
@@ -130,6 +130,61 @@ export const navItems: NavItem[] = [
         title: 'Sprint Timeline',
         href: '/sprint-timeline',
         iconName: 'CalendarRange',
+      },
+      {
+        title: 'Discovery & Planning Stage',
+        href: '/management/discovery-planning',
+        iconName: 'SearchCheck', // Example icon
+        items: [
+            { title: 'Product Vision', href: '/management/product-vision', iconName: 'Eye' },
+            { title: 'Problem Statement', href: '/management/problem-statement', iconName: 'AlertOctagon' },
+            { title: 'User Research', href: '/management/user-research', iconName: 'Users' },
+            { title: 'Competitive Analysis', href: '/management/competitive-analysis', iconName: 'Telescope' },
+            { title: 'Value Proposition', href: '/management/value-proposition', iconName: 'Gem' },
+        ],
+      },
+      {
+        title: 'Strategy & Roadmapping',
+        href: '/management/strategy-roadmapping',
+        iconName: 'Route', // Example icon
+        items: [
+            { title: 'Product Strategy', href: '/management/product-strategy', iconName: 'Target' },
+            { title: 'Product Roadmap', href: '/management/product-roadmap', iconName: 'Map' },
+            { title: 'OKRs / KPIs', href: '/management/okrs-kpis', iconName: 'Goal' },
+        ],
+      },
+      {
+        title: 'Requirements & Design',
+        href: '/management/requirements-design',
+        iconName: 'DraftingCompass', // Example icon
+        items: [
+            { title: 'PRD', href: '/management/prd', iconName: 'FileText' },
+            { title: 'Wireframes & Prototypes', href: '/management/wireframes', iconName: 'MousePointer2' },
+            { title: 'User Journey Maps', href: '/management/user-journey', iconName: 'Workflow' },
+            { title: 'Feature Prioritization', href: '/management/feature-prioritization', iconName: 'ListFilter' },
+        ],
+      },
+      {
+        title: 'Execution & Delivery',
+        href: '/management/execution-delivery',
+        iconName: 'Send', // Example icon
+        items: [
+            { title: 'Sprint Planning Docs', href: '/management/sprint-planning-docs', iconName: 'CalendarDays' },
+            { title: 'Release Notes', href: '/management/release-notes', iconName: 'Megaphone' },
+            { title: 'QA Overview', href: '/management/qa-overview', iconName: 'ShieldCheck' },
+            { title: 'Risk Management', href: '/management/risk-management', iconName: 'ShieldAlert' },
+        ],
+      },
+      {
+        title: 'Post-Launch & Evaluation',
+        href: '/management/post-launch-evaluation',
+        iconName: 'Recycle', // Example icon
+        items: [
+            { title: 'Analytics Dashboards', href: '/management/analytics-reports', iconName: 'LineChart' },
+            { title: 'User Feedback Logs', href: '/management/user-feedback', iconName: 'MessageSquare' },
+            { title: 'Retrospectives', href: '/management/retrospectives', iconName: 'RotateCcw' },
+            { title: 'Feature Adoption Report', href: '/management/feature-adoption', iconName: 'TrendingUp' },
+        ],
       },
     ],
   },
@@ -153,7 +208,7 @@ export const navItems: NavItem[] = [
   {
     title: 'History',
     href: '/history',
-    iconName: 'HistoryIcon',
+    iconName: 'History', // Changed from HistoryIcon
   },
   {
     title: 'Settings',
